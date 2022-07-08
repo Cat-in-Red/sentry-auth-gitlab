@@ -5,7 +5,7 @@ from sentry import http
 from sentry.utils import json
 
 from .constants import API_BASE_URL
-
+from .constants import VERIFY_SSL
 
 class GitLabApiError(Exception):
     def __init__(self, message='', status=None):
@@ -21,7 +21,7 @@ class GitLabClient(object):
         url = '{0}/{1}'.format(API_BASE_URL, path.lstrip('/'))
 
         try:
-            req = self.http.get(url, headers=headers)
+            req = self.http.get(url, headers=headers, verify=VERIFY_SSL)
         except RequestException as e:
             raise GitLabApiError(unicode(e), status=e.status_code)
         return json.loads(req.content)

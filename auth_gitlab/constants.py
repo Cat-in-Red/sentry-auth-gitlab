@@ -9,7 +9,7 @@ BASE_DOMAIN = getattr(settings, 'GITLAB_BASE_DOMAIN', None)
 SCHEME = getattr(settings, 'GITLAB_HTTP_SCHEME', 'https')
 API_VERSION = getattr(settings, 'GITLAB_API_VERSION', 4)
 SCOPE = getattr(settings, 'GITLAB_AUTH_SCOPE', 'api')
-VERIFY_SSL = getattr(settings, 'GITLAB_VERIFY_SSL', true)
+VERIFY_SSL = getattr(settings, 'GITLAB_VERIFY_SSL', True)
 
 ACCESS_TOKEN_URL = '{0}://{1}/oauth/token'.format(SCHEME, BASE_DOMAIN)
 AUTHORIZE_URL = '{0}://{1}/oauth/authorize'.format(SCHEME, BASE_DOMAIN)

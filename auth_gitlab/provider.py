@@ -26,7 +26,7 @@ class GitLabOAuth2Provider(OAuth2Provider):
     def get_refresh_token_url(self):
         return ACCESS_TOKEN_URL
 
-    def build_config(self, config):
+    def build_config(self, state):
         return {}
 
     def build_identity(self, state):
@@ -38,3 +38,9 @@ class GitLabOAuth2Provider(OAuth2Provider):
             'name': user_data['name'],
             'data': self.get_oauth_data(data),
         }
+
+    def get_client_id():
+        return CLIENT_ID
+
+    def get_client_secret():
+        return CLIENT_SECRET
